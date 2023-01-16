@@ -7,7 +7,7 @@ export default function ETHWallet() {
   const [OTPSent, setOTPSent] = useState(false);
   const [searchString, setSearchString] = useState("");
   const [selectedAddress, setSelectedAddress] = useState("");
-  const [selectedAmount, setSelectedAmount] = useState(parseFloat("0"));
+  const [selectedAmount, setSelectedAmount] = useState(0);
   const [OTPString, setOTPString] = useState("");
 
   // States for Displaying Elements
