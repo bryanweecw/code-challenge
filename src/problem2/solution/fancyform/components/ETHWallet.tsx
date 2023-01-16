@@ -7,7 +7,7 @@ export default function ETHWallet() {
   const [OTPSent, setOTPSent] = useState(false);
   const [searchString, setSearchString] = useState("");
   const [selectedAddress, setSelectedAddress] = useState("");
-  const [selectedAmount, setSelectedAmount] = useState(0.0);
+  const [selectedAmount, setSelectedAmount] = useState(parseFloat("0"));
   const [OTPString, setOTPString] = useState("");
 
   // States for Displaying Elements
@@ -138,6 +138,8 @@ export default function ETHWallet() {
             placeholder="Amount to send"
             step={0.000000000000000001}
             onChange={(e) => {
+              e.preventDefault;
+              //prevents invalid characters from resetting field.
               setSelectedAmount(parseFloat(e.target.value));
             }}
             className="border drop-shadow-sm px-5 py-4 text-left bg-white border-blue w-full h-auto"
