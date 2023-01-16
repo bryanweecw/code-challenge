@@ -134,11 +134,10 @@ export default function ETHWallet() {
           <div className="font-bold my-3 px-2">Amount to send:</div>
           <input
             type="number"
-            value={selectedAmount}
             placeholder="Amount to send"
             inputMode="decimal"
             pattern="\d*"
-            step={0.000000000000000001}
+            step={0.01}
             onChange={(e) => {
               e.preventDefault;
               //prevents invalid characters from resetting field.
