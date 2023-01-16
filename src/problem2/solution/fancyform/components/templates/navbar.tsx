@@ -19,12 +19,10 @@ export default function NavBar() {
       <nav className="sticky top-0 flex w-full bg-slate-50 drop-shadow-sm z-40 border">
         <div className="w-1/12 justify-center"></div>
         <div className="h-full py-2 px-2 relative">
-          <Image
-            className="h-12 w-12 justify-center"
+          <img
+            className="h-12 w-12 self-center"
             src={"/documentlogo.ico"}
             alt={"A document vector image"}
-            height="0"
-            width="0"
           />
         </div>
         {/* <div className="w-1/2 flex-shrink border-2 justify-right"></div> */}
