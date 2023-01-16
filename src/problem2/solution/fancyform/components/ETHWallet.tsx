@@ -136,6 +136,7 @@ export default function ETHWallet() {
             type="number"
             value={selectedAmount}
             placeholder="Amount to send"
+            pattern="\d*"
             step={0.000000000000000001}
             onChange={(e) => {
               e.preventDefault;
