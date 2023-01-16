@@ -55,6 +55,9 @@ export default function ETHWallet() {
       if (SubmittedBalance > accountBalance) {
         error_msg += "Not Enough Balance for Transaction, ";
       }
+      if (Number.isNaN(SubmittedBalance)) {
+        error_msg += "Invalid Decimal Number for Amount to Send, ";
+      }
       error_msg += "please try again.";
       toast(error_msg);
     }
