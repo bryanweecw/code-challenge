@@ -44,6 +44,18 @@ export default function ETHWallet() {
           " with OTP " +
           OTPString
       );
+
+      //reset input values
+      setOTPSent(false);
+      setSearchString("");
+      setShowSearchBar(true);
+
+      //reset submission values
+      setSelectedAmount(0);
+      setSelectedAddress("");
+      setOTPString("");
+
+      (document.getElementById("eth-form") as HTMLFormElement).reset();
     } else {
       let error_msg = "Failed with: ";
       if (AddressString != addressExpected) {
@@ -76,14 +88,18 @@ export default function ETHWallet() {
     }
     if (searchString != addressExpected) {
       if (isAddressSelected) {
+        //reset if unselect
         setIsAddressSelected(false);
         setSelectedAddress("");
+        setOTPSent(false);
+        setSelectedAmount(0);
+        setOTPString("");
       }
     }
   }, [searchString]);
 
   return (
-    <>
+    <form id="eth-form" onSubmit={(e) => e.preventDefault()}>
       <div className="font-bold mb-3 px-2">ETH Wallet Selected:</div>
       {showSearchBar ? (
         <>
@@ -175,10 +191,12 @@ export default function ETHWallet() {
         <></>
       )}
       <div className="w-full h-auto flex justify-end">
-        <button
+        <input
+          type="submit"
           className=" bg-green-300 rounded-xl px-3 py-2 mt-5 hover:bg-green-400"
+          value="Send Tokens"
           onClick={(e) => {
-            e.preventDefault;
+            e.preventDefault();
             validateForm(
               OTPSent,
               isAddressSelected,
@@ -187,13 +205,11 @@ export default function ETHWallet() {
               OTPExpected
             );
           }}
-        >
-          Submit
-        </button>
+        ></input>
       </div>
       <div className="relative w-full pt-2 text-right text-xs">
         Your Balance: {accountBalance} ETH
       </div>
-    </>
+    </form>
   );
 }
