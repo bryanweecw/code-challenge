@@ -1,7 +1,8 @@
 const { ethers } = require("ethers");
 
 const ADDR = "0x0DBEBf576F579CB36485A4f4F670a7b564393b4A"; // your contract address
-const ABI = require("./artifacts/contracts/UtilityContract.sol/UtilityContract.json"); // your contract ABI
+const ABI =
+  require("./artifacts/contracts/UtilityContract.sol/UtilityContract.json").abi; // your contract ABI
 
 const ADDRESS = "…"; // some wallet address with token balance
 const TOKENS = [
@@ -19,7 +20,7 @@ const provider = new ethers.providers.AlchemyProvider(
 const test = async () => {
   const contract = new ethers.Contract(ADDR, ABI, provider);
 
-  const balances = await contract.getBalances(ADDRESS, tokens);
+  const balances = await contract.getBalances(ADDRESS, TOKENS);
 
   return balances;
 };
